@@ -1,0 +1,39 @@
+{
+	"schemaVersion": 1,
+	"id": "coords_copy",
+	"version": "${version}",
+	"name": "CoordsCopy",
+	"description": "This Mod lets you copy a blocks coordinates by looking at it and hitting a key. Simple but very useful when doing stuff with commands and command blocks. ;)",
+	"authors": [
+		"MarioS271"
+	],
+	"contact": {
+		"sources": "https://github.com/MarioS271/coords-copy-minecraft-mod"
+	},
+	"license": "license.marios271.net/closed-source",
+	"icon": "assets/coords_copy/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.marios271.coords_copy.CoordsCopy"
+		],
+		"client": [
+			"net.marios271.coords_copy.CoordsCopyClient"
+		],
+		"fabric-datagen": [
+			"net.marios271.coords_copy.CoordsCopyDataGenerator"
+		]
+	},
+	"mixins": [
+		"coords_copy.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.0",
+		"minecraft": "~1.20.2",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

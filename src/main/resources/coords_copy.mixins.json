@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "net.marios271.coords_copy.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+		"ExampleMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
