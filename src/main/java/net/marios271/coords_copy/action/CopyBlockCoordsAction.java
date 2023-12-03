@@ -24,7 +24,6 @@ public class CopyBlockCoordsAction {
                 BlockPos blockPos = blockHit.getBlockPos();
                 String formattedBlockPos = String.format("%d %d %d", blockPos.getX(), blockPos.getY(), blockPos.getZ());
                 copyToClipboard(formattedBlockPos);
-                client.player.sendMessage(Text.literal(formattedBlockPos), false);//TEMPORARY
 
                 client.player.sendMessage(Text.translatable("message.coords_copy.copied_block_coords"), true);
                 break;
