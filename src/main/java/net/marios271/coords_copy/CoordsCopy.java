@@ -11,6 +11,6 @@ public class CoordsCopy implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("initialized coords_copy");
 	}
 }
