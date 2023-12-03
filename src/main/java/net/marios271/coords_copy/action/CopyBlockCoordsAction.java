@@ -1,28 +1,44 @@
 package net.marios271.coords_copy.action;
 
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.util.Clipboard;
 import net.minecraft.text.Text;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.math.BlockPos;
+import java.util.Objects;
+import org.lwjgl.glfw.GLFW;
 
 public class CopyBlockCoordsAction {
-    public static void solid(){
+    public static void run(){
         MinecraftClient client = MinecraftClient.getInstance();
         assert client.player != null;
+        HitResult hit = client.crosshairTarget;
 
+        switch(Objects.requireNonNull(hit).getType()){
+            case MISS, ENTITY:
+                client.player.sendMessage(Text.translatable("message.coords_copy.no_block"), true);
+                break;
+            case BLOCK:
+                BlockHitResult blockHit = (BlockHitResult) hit;
+                BlockPos blockPos = blockHit.getBlockPos();
+                String formattedBlockPos = String.format("%d %d %d", blockPos.getX(), blockPos.getY(), blockPos.getZ());
+                copyToClipboard(formattedBlockPos);
+                client.player.sendMessage(Text.literal(formattedBlockPos), false);//TEMPORARY
 
-        /////
-
-
-        client.player.sendMessage(Text.translatable("message.coords_copy.copied_block_coords"), true);
+                client.player.sendMessage(Text.translatable("message.coords_copy.copied_block_coords"), true);
+                break;
+            default:
+                client.player.sendMessage(Text.translatable("message.coords_copy.error"), true);
+                break;
+        }
     }
 
-    public static void fluid(){
+    private static void copyToClipboard(String string){
         MinecraftClient client = MinecraftClient.getInstance();
         assert client.player != null;
 
-
-        /////
-
-
-        client.player.sendMessage(Text.translatable("message.coords.copy.copied_block_coords"), true);
+        Clipboard clipboard = new Clipboard();
+        clipboard.setClipboard(client.getWindow().getHandle(), string);
     }
 }
