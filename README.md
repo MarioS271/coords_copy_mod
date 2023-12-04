@@ -4,5 +4,8 @@ Current Features (v1.0):
 - Copy player coordinates
 - Copy targeted block coordinates
 
-https://modrinth.com/mod/coordscopy
-https://curseforge.com/
+<br>
+### Download here:
+
+- [Modrinth](https://modrinth.com/mod/coordscopy) (Not approved yet)
+- [Curseforge](https://curseforge.com/minecraft/mc-mods/coordscopy) (Not approved yet)
