@@ -1,0 +1,9 @@
+{
+  "key.category.coords_copy": "CoordsCopy",
+  "key.coords_copy.copy_player_coords": "Spülakooadinotn kopian",
+  "key.coords_copy.copy_block_coords": "Blockkooadinotn kopiara",
+  "message.coords_copy.copied_player_coords": "Spülakooadinaotn wuadn kopiat",
+  "message.coords_copy.copied_block_coords": "Blockkooadinotn wuadn kopiat",
+  "message.coords_copy.no_block": "§cDu schaust kan Block an!§r",
+  "message.coords_copy.error": "§cEtwos is beim kopian dea Kooadinotn des anvisiatn Blocks schiefglaufn... :(§r"
+}

@@ -1,0 +1,9 @@
+{
+  "key.category.coords_copy": "CoordsCopy",
+  "key.coords_copy.copy_player_coords": "Spielerkoordinaten kopieren",
+  "key.coords_copy.copy_block_coords": "Blockkoordinaten kopieren",
+  "message.coords_copy.copied_player_coords": "Spielerkoordinaten kopiert",
+  "message.coords_copy.copied_block_coords": "Blockkoordinaten kopiert",
+  "message.coords_copy.no_block": "§cDu schaust keinen Block an!§r",
+  "message.coords_copy.error": "§cEtwas ist beim Kopieren der Koordinaten des anvisierten Blockes schiefgelaufen... :(§r"
+}
