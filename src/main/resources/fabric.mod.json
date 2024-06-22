@@ -9,9 +9,10 @@
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/mod/coordscopy",
-		"sources": "https://github.com/MarioS271/coords_copy_mod"
+		"sources": "https://github.com/MarioS271/coords_copy_mod",
+		"issues": "https://github.com/MarioS271/coords_copy_mod/issues"
 	},
-	"license": "https://license.marios271.net/closed-source",
+	"license": "CC0-1.0 license",
 	"icon": "assets/coords_copy/icon.png",
 	"environment": "*",
 	"entrypoints": {
