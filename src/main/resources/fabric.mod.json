@@ -14,7 +14,7 @@
 	},
 	"license": "CC0-1.0 license",
 	"icon": "assets/coords_copy/icon.png",
-	"environment": "*",
+	"environment": "client",
 	"entrypoints": {
 		"main": [
 			"net.marios271.coords_copy.CoordsCopy"

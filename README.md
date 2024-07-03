@@ -7,7 +7,6 @@
 - Copy player coordinates
 - Copy targeted block coordinates
 
-<br>
 <hr>
 
 ### Download here:
