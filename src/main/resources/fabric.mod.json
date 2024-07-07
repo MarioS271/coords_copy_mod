@@ -12,7 +12,7 @@
 		"sources": "https://github.com/MarioS271/coords_copy_mod",
 		"issues": "https://github.com/MarioS271/coords_copy_mod/issues"
 	},
-	"license": "MIT",
+	"license": "MarioS271 License",
 	"icon": "assets/coords_copy/icon.png",
 	"environment": "client",
 	"entrypoints": {
