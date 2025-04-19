@@ -7,7 +7,6 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import java.util.Objects;
-import org.lwjgl.glfw.GLFW;
 
 public class CopyBlockCoordsAction {
     public static void player(){
