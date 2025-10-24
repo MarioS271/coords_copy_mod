@@ -44,9 +44,8 @@ public class CopyBlockCoordsAction {
 
     private static void copyToClipboard(String string){
         MinecraftClient client = MinecraftClient.getInstance();
-        assert client.player != null;
 
         Clipboard clipboard = new Clipboard();
-        clipboard.setClipboard(client.getWindow().getHandle(), string);
+        clipboard.set(client.getWindow(), string);
     }
 }

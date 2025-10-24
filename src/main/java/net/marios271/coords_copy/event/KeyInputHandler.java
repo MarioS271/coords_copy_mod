@@ -5,10 +5,11 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.marios271.coords_copy.action.CopyBlockCoordsAction;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 
 public class KeyInputHandler {
-    public static final String KEY_CATEGORY_COORDS_COPY = "key.category.coords_copy";
+    public static final KeyBinding.Category COORDS_COPY_CATEGORY = KeyBinding.Category.create(Identifier.of("key.category.coords_copy"));
     public static final String KEY_COPY_BLOCK_COORDS = "key.coords_copy.copy_block_coords";
     public static final String KEY_COPY_PLAYER_COORDS = "key.coords_copy.copy_player_coords";
 
@@ -33,13 +34,13 @@ public class KeyInputHandler {
                 KEY_COPY_PLAYER_COORDS,
                 InputUtil.Type.KEYSYM,
                 GLFW.GLFW_KEY_F9,
-                KEY_CATEGORY_COORDS_COPY
+                COORDS_COPY_CATEGORY
         ));
         copyBlockCoordsKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
                 KEY_COPY_BLOCK_COORDS,
                 InputUtil.Type.KEYSYM,
                 GLFW.GLFW_KEY_F10,
-                KEY_CATEGORY_COORDS_COPY
+                COORDS_COPY_CATEGORY
         ));
 
         registerKeyInputs();
