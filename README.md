@@ -12,3 +12,6 @@
 ### Download here:
 - [Modrinth](https://modrinth.com/mod/coordscopy)
 - [Curseforge](https://curseforge.com/minecraft/mc-mods/coordscopy)
+
+<br><hr>
+Licensed under the [MarioS271 Closed License](https://license.marios271.net/closed)
