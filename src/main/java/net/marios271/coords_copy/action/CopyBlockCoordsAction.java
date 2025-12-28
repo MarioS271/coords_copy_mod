@@ -1,51 +1,74 @@
 package net.marios271.coords_copy.action;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.util.Clipboard;
-import net.minecraft.text.Text;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.hit.HitResult;
-import net.minecraft.util.math.BlockPos;
+import net.marios271.coords_copy.CoordsCopy;
+import net.minecraft.client.Minecraft;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
+
 import java.util.Objects;
 
 public class CopyBlockCoordsAction {
     public static void player(){
-        MinecraftClient client = MinecraftClient.getInstance();
-        assert client.player != null;
+        Minecraft client = Minecraft.getInstance();
+        if (client.player == null) return;
 
         String playerPos = String.format("%d %d %d", (int) client.player.getX(), (int) client.player.getY(), (int) client.player.getZ());
 
         copyToClipboard(playerPos);
-        client.player.sendMessage(Text.translatable("message.coords_copy.copied_player_coords"), true);
+        sendCopyMessage(CopyMessage.COPY_MSG_COPIED_PLAYER, playerPos);
     }
 
     public static void block(){
-        MinecraftClient client = MinecraftClient.getInstance();
-        assert client.player != null;
-        HitResult hit = client.crosshairTarget;
+        Minecraft client = Minecraft.getInstance();
+        if (client.player == null || client.hitResult == null) return;
+        HitResult hit = client.hitResult;
 
         switch(Objects.requireNonNull(hit).getType()){
             case MISS, ENTITY:
-                client.player.sendMessage(Text.translatable("message.coords_copy.no_block"), true);
+                sendCopyMessage(CopyMessage.COPY_MSG_NO_BLOCK, "");
                 break;
             case BLOCK:
                 BlockHitResult blockHit = (BlockHitResult) hit;
-                BlockPos blockPos = blockHit.getBlockPos();
-                String formattedBlockPos = String.format("%d %d %d", blockPos.getX(), blockPos.getY(), blockPos.getZ());
-                copyToClipboard(formattedBlockPos);
+                BlockPos blockHitPos = blockHit.getBlockPos();
 
-                client.player.sendMessage(Text.translatable("message.coords_copy.copied_block_coords"), true);
+                String blockPos = String.format("%d %d %d", blockHitPos.getX(), blockHitPos.getY(), blockHitPos.getZ());
+
+                copyToClipboard(blockPos);
+                sendCopyMessage(CopyMessage.COPY_MSG_COPIED_BLOCK, blockPos);
                 break;
             default:
-                client.player.sendMessage(Text.translatable("message.coords_copy.error"), true);
+                sendCopyMessage(CopyMessage.COPY_MSG_ERROR, "");
                 break;
         }
     }
 
     private static void copyToClipboard(String string){
-        MinecraftClient client = MinecraftClient.getInstance();
+        Minecraft client = Minecraft.getInstance();
+        client.keyboardHandler.setClipboard(string);
+    }
 
-        Clipboard clipboard = new Clipboard();
-        clipboard.set(client.getWindow(), string);
+    private enum CopyMessage {
+        COPY_MSG_NO_BLOCK,
+        COPY_MSG_COPIED_PLAYER,
+        COPY_MSG_COPIED_BLOCK,
+        COPY_MSG_ERROR
+    }
+
+    private static void sendCopyMessage(CopyMessage copyMessage, String coords) {
+        boolean chat_output = CoordsCopy.CONFIG.chat_instead_of_actionbar();
+
+        Minecraft client = Minecraft.getInstance();
+        if (client.player == null) return;
+
+        Component msg = switch (copyMessage) {
+            case COPY_MSG_COPIED_PLAYER -> Component.translatable("message.coords_copy.copied_player_coords", coords);
+            case COPY_MSG_COPIED_BLOCK -> Component.translatable("message.coords_copy.copied_block_coords", coords);
+            case COPY_MSG_NO_BLOCK -> Component.translatable("message.coords_copy.no_block");
+            case COPY_MSG_ERROR -> Component.translatable("message.coords_copy.error");
+        };
+
+        client.player.displayClientMessage(msg, !chat_output);
     }
 }
