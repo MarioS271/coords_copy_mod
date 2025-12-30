@@ -20,6 +20,6 @@ public class CoordsCopy implements ClientModInitializer {
     public void onInitializeClient() {
         KeyInputHandler.register();
 
-        LOGGER.info("Initialized " + MOD_ID);
+        LOGGER.info("Initialized CoordsCopy");
     }
 }

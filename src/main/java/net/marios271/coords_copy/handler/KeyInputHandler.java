@@ -9,7 +9,7 @@ import net.minecraft.resources.Identifier;
 import org.lwjgl.glfw.GLFW;
 
 public class KeyInputHandler {
-    public static final KeyMapping.Category COORDS_COPY_CATEGORY = KeyMapping.Category.register(Identifier.parse("key.category.coords_copy"));
+    public static final KeyMapping.Category COORDS_COPY_CATEGORY = KeyMapping.Category.register(Identifier.parse("coords_copy"));
     public static final String KEY_COPY_BLOCK_COORDS = "key.coords_copy.copy_block_coords";
     public static final String KEY_COPY_PLAYER_COORDS = "key.coords_copy.copy_player_coords";
 
