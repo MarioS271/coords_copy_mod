@@ -1,4 +1,4 @@
-package net.marios271.coords_copy.event;
+package net.marios271.coords_copy.handler;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;

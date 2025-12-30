@@ -18,6 +18,9 @@
 	"entrypoints": {
 		"client": [
 			"net.marios271.coords_copy.CoordsCopy"
+		],
+		"modmenu": [
+			"net.marios271.coords_copy.config.ModMenuIntegration"
 		]
 	},
 	"depends": {

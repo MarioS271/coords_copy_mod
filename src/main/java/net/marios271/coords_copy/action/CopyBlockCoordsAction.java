@@ -57,7 +57,7 @@ public class CopyBlockCoordsAction {
     }
 
     private static void sendCopyMessage(CopyMessage copyMessage, String coords) {
-        boolean chat_output = CoordsCopy.CONFIG.chat_instead_of_actionbar();
+        boolean chat_output = CoordsCopy.CONFIG.chat_instead_of_actionbar;
 
         Minecraft client = Minecraft.getInstance();
         if (client.player == null) return;
