@@ -69,6 +69,10 @@ public class CopyBlockCoordsAction {
             case COPY_MSG_ERROR -> Component.translatable("message.coords_copy.error");
         };
 
-        client.player.displayClientMessage(msg, !chat_output);
+        if (chat_output) {
+            client.player.sendSystemMessage(msg);
+        } else {
+            client.player.sendOverlayMessage(msg);
+        }
     }
 }

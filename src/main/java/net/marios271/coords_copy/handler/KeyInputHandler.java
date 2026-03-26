@@ -2,7 +2,7 @@ package net.marios271.coords_copy.handler;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
 import net.marios271.coords_copy.action.CopyBlockCoordsAction;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.resources.Identifier;
@@ -30,13 +30,13 @@ public class KeyInputHandler {
     }
 
     public static void register(){
-        copyPlayerCoordsKey = KeyBindingHelper.registerKeyBinding(new KeyMapping(
+        copyPlayerCoordsKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
                 KEY_COPY_PLAYER_COORDS,
                 InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_F9,
                 COORDS_COPY_CATEGORY
         ));
-        copyBlockCoordsKey = KeyBindingHelper.registerKeyBinding(new KeyMapping(
+        copyBlockCoordsKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
                 KEY_COPY_BLOCK_COORDS,
                 InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_F10,
