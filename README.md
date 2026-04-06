@@ -8,7 +8,7 @@ is "x y z", (for example: -34 65 219).
 The mod is also able to copy your current player position into the clipboard using another key, formatted the same as the
 block coordinates.
 
-### Current Features (v1.0):
+### Current Features (v1.1):
 - Copy player coordinates
 - Copy targeted block coordinates
 
